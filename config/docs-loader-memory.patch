@@ -1,0 +1,16 @@
+diff --git a/docs-loader/main.go b/docs-loader/main.go
+index 9a4e945..c6cd473 100644
+--- a/docs-loader/main.go
++++ b/docs-loader/main.go
+@@ -102,6 +102,11 @@ func Load(w http.ResponseWriter, r *http.Request) {
+   for i := 0; ; i++ {
+     // Allocate a new byte slice of chunkSize
+     chunk := make([]byte, chunkSize)
++    // Touch each Linux memory page so the demo allocates physical memory,
++    // rather than accumulating mostly untouched zero-backed address space.
++    for offset := 0; offset < len(chunk); offset += 4096 {
++      chunk[offset] = 1
++    }
+ 
+     // Append it to the data slice, continuously increasing memory usage
+     data = append(data, chunk)

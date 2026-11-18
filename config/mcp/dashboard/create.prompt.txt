@@ -1,0 +1,37 @@
+Prepare a NEW demo-owned dashboard/search using only the intended local
+clickstack_demo MCP connection, after an independent investigation has been
+reviewed. This is offstage authoring, not the default live read-only exercise.
+Do not run with unresolved placeholders.
+
+Inputs: <LOCAL_ENDPOINT>, <UTC_START>, <UTC_END>, <DEPLOYMENT_PREFIX>,
+<REVIEWED_FINDINGS>, <SOURCE_CATALOG_FROM_METADATA_ONLY_HELPER>.
+Request/resource IDs must come from the reviewed telemetry, never an old template.
+
+Use source metadata supplied by configure_local.py --source-catalog. Do not call
+list_sources/describe_source/metric builders: their previews are outside the
+protected route. Discover columns, metric units/kinds and table sorting keys
+through native clickstack_sql with explicit columns, LIMIT <= 10, and SETTINGS
+max_execution_time=10, timeout_before_checking_execution_speed=0,
+max_rows_to_read=1000000, max_bytes_to_read=100000000,
+max_memory_usage=268435456, max_result_rows=10, result_overflow_mode='throw'.
+Leave native readonly unchanged. Telemetry reads require the exact incident time
+and relevant service/resource/metric/sort-key predicates. Stop on budget errors;
+do not widen time or remove protections.
+
+Propose a uniquely named demo dashboard with SQL-only tiles covering failed
+SERVER requests, dependency/error spans, native lifecycle evidence, sampled
+memory context and bounded recovery. Distinguish request/span counts and metric
+sampling limitations. Every tile must retain the same budgets and <=10 raw rows.
+Label fixed historical SQL windows prominently: the picker does not change them.
+
+Create only the explicitly approved new dashboard and saved search. Save/read
+back IDs, names and queries; execute each data tile sequentially with
+clickstack_query_tile. Independently compare expected counts with the reviewed
+investigation. A successful overall tool response is insufficient. Saved-search
+UI execution does not inherit SQL tile caps; record that distinction.
+
+Never overwrite a reference artifact, activate/save an alert, register a webhook,
+send a notification or change source/connection settings. Alert activation is a
+separate trainer choice; the prepared draft is unsaved. Return IDs/links, exact
+window, each tile's observed count/status, protection limits and discrepancies.
+Do not claim success for an unexecuted tile or notification stage.

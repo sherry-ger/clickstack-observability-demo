@@ -1,0 +1,9 @@
+FROM --platform=$BUILDPLATFORM golang:1.25.14-bookworm@sha256:3b4a11519ad929d1e1d261a12cff056f0c85b735253d7d861346b9c6f8b36437 AS builder
+ARG TARGETARCH
+WORKDIR /app
+COPY otel-collector/go.mod otel-collector/healthcheck.go ./
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=$TARGETARCH GOMAXPROCS=2 go build -p 2 -trimpath -ldflags "-s -w" -o healthcheck healthcheck.go
+
+# Preserve the collector release observed in the original pinned image.
+FROM otel/opentelemetry-collector-contrib:0.142.0@sha256:38c349c3b7a2fd7ea46700cde8fa13d35b699ef2ce245bdf34dae2a413512f76
+COPY --from=builder /app/healthcheck /healthcheck

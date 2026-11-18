@@ -1,0 +1,133 @@
+[
+  {
+    "image": "alpine/socat:1.8.1.3",
+    "index_digest": "sha256:466c8a0383e16463fabdb7df01008292fb78d07da60224a46cb5d3142ce122ed",
+    "platforms": [
+      "linux/arm/v7",
+      "linux/arm64",
+      "linux/arm/v6",
+      "linux/amd64",
+      "linux/ppc64le",
+      "linux/s390x"
+    ],
+    "pinned_image": "alpine/socat:1.8.1.3@sha256:466c8a0383e16463fabdb7df01008292fb78d07da60224a46cb5d3142ce122ed"
+  },
+  {
+    "image": "postgres:18.6",
+    "index_digest": "sha256:bd5dfa494a5a259704365813dbfa5fa6b3e69be7348d43b547f540c730478583",
+    "platforms": [
+      "linux/amd64",
+      "unknown/unknown",
+      "linux/arm/v5",
+      "unknown/unknown",
+      "linux/arm/v7",
+      "unknown/unknown",
+      "linux/arm64/v8",
+      "unknown/unknown",
+      "linux/386",
+      "unknown/unknown",
+      "linux/ppc64le",
+      "unknown/unknown",
+      "linux/riscv64",
+      "unknown/unknown",
+      "linux/s390x",
+      "unknown/unknown"
+    ],
+    "pinned_image": "postgres:18.6@sha256:bd5dfa494a5a259704365813dbfa5fa6b3e69be7348d43b547f540c730478583"
+  },
+  {
+    "image": "ghcr.io/clickhouse/clickstack-demo-subscription-app:26.9.0-load-generator",
+    "index_digest": "sha256:63beb3e3b83315ca66c1e290e5bbc19727ea2cae18f6de24961f97bfe68489dc",
+    "platforms": [
+      "linux/arm64",
+      "unknown/unknown"
+    ],
+    "pinned_image": "ghcr.io/clickhouse/clickstack-demo-subscription-app:26.9.0-load-generator@sha256:63beb3e3b83315ca66c1e290e5bbc19727ea2cae18f6de24961f97bfe68489dc",
+    "scope": "Optional traffic profile; ARM64 only, not part of portable core."
+  },
+  {
+    "image": "clickhouse/clickstack-all-in-one:2.42.0",
+    "index_digest": "sha256:1689304bf8f9eab8a5c9069ea8fec2fe52a47de3bf46b4beafb05d5f155680df",
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "pinned_image": "clickhouse/clickstack-all-in-one:2.42.0@sha256:1689304bf8f9eab8a5c9069ea8fec2fe52a47de3bf46b4beafb05d5f155680df"
+  },
+  {
+    "image": "python:3.13.5-slim",
+    "index_digest": "sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419",
+    "pinned_image": "python:3.13.5-slim@sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419",
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "scope": "Pinned local-build base"
+  },
+  {
+    "image": "alpine:3.24.1",
+    "index_digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+    "pinned_image": "alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "scope": "Pinned local-build base"
+  },
+  {
+    "image": "otel/opentelemetry-collector-contrib:0.142.0",
+    "index_digest": "sha256:38c349c3b7a2fd7ea46700cde8fa13d35b699ef2ce245bdf34dae2a413512f76",
+    "pinned_image": "otel/opentelemetry-collector-contrib:0.142.0@sha256:38c349c3b7a2fd7ea46700cde8fa13d35b699ef2ce245bdf34dae2a413512f76",
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "scope": "Pinned local-build base"
+  },
+  {
+    "image": "golang:1.25.14-bookworm",
+    "index_digest": "sha256:3b4a11519ad929d1e1d261a12cff056f0c85b735253d7d861346b9c6f8b36437",
+    "pinned_image": "golang:1.25.14-bookworm@sha256:3b4a11519ad929d1e1d261a12cff056f0c85b735253d7d861346b9c6f8b36437",
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "scope": "Pinned local-build base"
+  },
+  {
+    "image": "kubecon-training/subscription-app",
+    "kind": "local-build",
+    "dockerfile": "config/Dockerfile.subscription-app",
+    "source_revision": "228d030a2bdeb14d8803ad65946e64a9253af368",
+    "selected_by": "KUBECON_SUBSCRIPTION_IMAGE",
+    "platforms": [
+      "linux/arm64",
+      "linux/amd64"
+    ],
+    "verification": "Build targets; see .runtime/images-<architecture>.json and evidence/trainer-kit/task-03 for observed results. No registry publication."
+  },
+  {
+    "image": "kubecon-training/docs-loader",
+    "kind": "local-build",
+    "dockerfile": "config/Dockerfile.docs-loader",
+    "source_revision": "228d030a2bdeb14d8803ad65946e64a9253af368",
+    "selected_by": "KUBECON_DOCS_LOADER_IMAGE",
+    "platforms": [
+      "linux/arm64",
+      "linux/amd64"
+    ],
+    "verification": "Build targets; see .runtime/images-<architecture>.json and evidence/trainer-kit/task-03 for observed results. No registry publication."
+  },
+  {
+    "image": "kubecon-training/otel-collector",
+    "kind": "local-build",
+    "dockerfile": "config/Dockerfile.otel-collector",
+    "source_revision": "228d030a2bdeb14d8803ad65946e64a9253af368",
+    "selected_by": "KUBECON_COLLECTOR_IMAGE",
+    "platforms": [
+      "linux/arm64",
+      "linux/amd64"
+    ],
+    "verification": "Build targets; see .runtime/images-<architecture>.json and evidence/trainer-kit/task-03 for observed results. No registry publication."
+  }
+]

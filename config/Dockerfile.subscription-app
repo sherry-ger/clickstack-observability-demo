@@ -1,0 +1,13 @@
+# Same Python release and installed dependency versions as the original demo.
+FROM python:3.13.5-slim@sha256:4c2cf9917bd1cbacc5e9b07320025bdb7cdf2df7b0ceaccb55e9dd7e30987419
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 FLASK_APP=flask_app.py FLASK_ENV=production
+WORKDIR /app
+COPY config/subscription-requirements.lock ./requirements.lock
+# Require wheels so an unavailable target cannot silently compile a new variant.
+RUN pip install --no-cache-dir --only-binary=:all: -r requirements.lock
+COPY subscription-app/flask_app.py ./
+COPY subscription-app/static/ static/
+COPY subscription-app/templates/ templates/
+RUN adduser --disabled-password --gecos '' appuser && chown -R appuser:appuser /app
+USER appuser
+CMD ["opentelemetry-instrument", "python", "flask_app.py"]

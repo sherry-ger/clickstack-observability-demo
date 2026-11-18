@@ -1,0 +1,15 @@
+# Match the Go toolchain observed in the published binary; pin both base images.
+FROM --platform=$BUILDPLATFORM golang:1.25.14-bookworm@sha256:3b4a11519ad929d1e1d261a12cff056f0c85b735253d7d861346b9c6f8b36437 AS builder
+ARG TARGETARCH
+WORKDIR /app
+COPY docs-loader/go.mod docs-loader/go.sum ./
+RUN go mod download
+COPY docs-loader/main.go ./
+# Compile on the builder's native CPU; target architecture comes from buildx.
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=$TARGETARCH GOMAXPROCS=2 go build -p 2 -trimpath -ldflags "-s -w" -o myapp main.go
+
+# Match the observed original Alpine version, using its multiarchitecture index.
+FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+WORKDIR /root
+COPY --from=builder /app/myapp /root/myapp
+CMD ["./myapp"]

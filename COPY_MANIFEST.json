@@ -1,0 +1,193 @@
+{
+  "selection": "explicit allowlist; no recursive workspace copy",
+  "copied_files": [
+    {
+      "path": ".env.example",
+      "sha256": "2b8466abc46b6307ea1f04a8a2c14d6b072737bd67d614ac9f1cb49f04eab84d",
+      "copied_unchanged": true
+    },
+    {
+      "path": ".codex/config.toml",
+      "sha256": "6e88152aede93af24b67138b15c2876fc77993517ad8b39a4bf81e2789a4cb9e",
+      "copied_unchanged": true
+    },
+    {
+      "path": ".codex/langfuse.json",
+      "sha256": "4a30c9be3f878a9b2ecf59f5e0ada934c9d7e390f09c232597a46d5b4e929a50",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/build.lock.json",
+      "sha256": "818b5f8eac6b9e7a1bad83e3884ecc782c4114a55b116fb60c7afe42976a8c23",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/images.lock.json",
+      "sha256": "96ad78a4f5d19d51ba2d59b433182bf9d261d8b3bde9615ffeb472231301d544",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/compose.local.yml",
+      "sha256": "4aca3d049957bb5ef3706fd76e1328ad885677bffc8dfd718b810a4caad69731",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/clickhouse-demo-user.xml",
+      "sha256": "f13c60f6b5f716465a2ebc1982ac456bfd3507b460824024dd3d4ead1df95651",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/Dockerfile.docs-loader",
+      "sha256": "209170211df64ef31929b59f5b59a21f766549c61c2430ff732eb64f3c725736",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/Dockerfile.subscription-app",
+      "sha256": "fe4efc8308e0afabcee8c8b612fd5c08598d1bec221f23ca63db68c851b76cd3",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/Dockerfile.otel-collector",
+      "sha256": "c0f6f5ca9e7ac19d90a77ac73bfb4cde33e574b546fbc887e8cb31fa5f7f887a",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/subscription-requirements.lock",
+      "sha256": "8802db58550829abb45c7437a3d3d284ba5831658bd559a294ca1d1013caca45",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/docs-loader-memory.patch",
+      "sha256": "595c2c0ab9e4d31e72d577cd612434981d73330fe43ca9ba9f963e3142702771",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/browser-otel-endpoint.patch",
+      "sha256": "f6b2c6198ff06cb82255306f672a69c37be303796414603c958cf6cee383f112",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/mcp/env.mcp.example",
+      "sha256": "e0731d94f875d62074e89cc4d9df6eb0d4f7a4eea58d62669c2cf1be84ab5e99",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/mcp/codex-clickstack",
+      "sha256": "4186d0bd1edbd016aa529005e5e5ed7a621ce7ea4c6777f1d1b21f758f3c600e",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/mcp/verify-connection.prompt.txt",
+      "sha256": "cd09b31f53e4c124fc755867844811719a54874c3dc2db732082ee373c398d7f",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/mcp/dashboard/create.prompt.txt",
+      "sha256": "c1b7fd3816a431c0de9804a2b13bad9d0d5be0fab513aeac317f9b37d816b38a",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/tracing/compose.yml",
+      "sha256": "036bb58d5adb131b682fa01a127f1f53c66f9d6c37d30cf013cccdd5f649f5d4",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/tracing/collector.yaml",
+      "sha256": "3dc21a6a7536379745cc7ac1f42ba874791a44b4572537141a511ae730102cad",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/tracing/stack",
+      "sha256": "c4a96d6c576a6d213765474e2dcd06afa5b42e7fb136973f796f4c52515d5255",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/tracing/codex-investigator",
+      "sha256": "aa12d12628247d9f85e6232888660ed904dc9030546a48f1e93bf9e1f9aa9757",
+      "copied_unchanged": true
+    },
+    {
+      "path": "config/tracing/langfuse-marketplace/.agents/plugins/marketplace.json",
+      "sha256": "80fc18c526d0dd7c98de17d68a3f97939041823c3cee91b8e4dd2b6095a9cbea",
+      "copied_unchanged": true
+    },
+    {
+      "path": "queries/task05/lifecycle-events.sql",
+      "sha256": "af67039a25d5ceaffb387f2296202d42a8ecf8792654ee7fde753d82ac58ef4e",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/build_images.py",
+      "sha256": "a998c817048f8e2088d7c88a1924ba7959f8284a02c0ef17166e8b141b9c82a7",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/check_prerequisites.py",
+      "sha256": "da6de45b36cf204e4c622f70e578cd41f2b3698482a38e7d8fdaaf6e38989ec5",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/check_readiness.py",
+      "sha256": "77718a2ad3e2fdb2c9e21f68eec860ef0f6b4e3f726ee393aa503ca6a79078b6",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/configure_local.py",
+      "sha256": "fab5c0a1664322974508ae6f5f424b26c9c12bb1872268e9a35eaa6440b2df7e",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/configure_langfuse.py",
+      "sha256": "fcb73657deb0f5874a0075919ad0410435de5e52c1a93edcb906acc91a67675f",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/configure_slack_webhook.py",
+      "sha256": "1aaa70ed196c911b94f2d838c00f27b7fef6ce9a3913608cd2a1803ac9bfe7ff",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/docker_events.py",
+      "sha256": "d7f688869b7d969937b7d8b518cb84b02243c3e672714079b4edacc450707185",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/launch_collector.py",
+      "sha256": "7cdab7de50f6206f75cf24f20432c14da56fd6c1bfe681028f6ff0f628067736",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/launch_investigator.py",
+      "sha256": "30f53f4a387476e6e27996fb6f3eb835281ab4ca622c6544aeb75b6f817e0dfa",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/launch_mcp.py",
+      "sha256": "426a61485467b4d248328c2f71a5b9fed2dfab38f76642eb85fd1cdd6c95f91d",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/observe_docs.py",
+      "sha256": "daff12dc5711b47ffd26a8716350a73f1392d705bd282d50297665ec504a22a9",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/run_incident.py",
+      "sha256": "2a32be279e94c629653f755175329f95b7b57a1adee623a6f837ffd5dd40a7e8",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/sql.py",
+      "sha256": "efe2455ac7cdf26f55bf315f63e845e61a80f8a6d976c677a28fd25b3c2bcd7c",
+      "copied_unchanged": true
+    },
+    {
+      "path": "scripts/stack.sh",
+      "sha256": "04ed3311c06dcbc04ff3c3400370d7be93c0979a9d976dc8c01b7304af7ad41e",
+      "copied_unchanged": true
+    }
+  ],
+  "upstream_license": "licenses/upstream-demo-LICENSE",
+  "public_docs": "adapted in this directory; not copied from private evidence",
+  "runtime_verification": "Original tested behavior; this copied folder still needs a clean-checkout runtime pilot"
+}

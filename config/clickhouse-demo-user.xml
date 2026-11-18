@@ -1,0 +1,11 @@
+<clickhouse>
+  <!-- Keep internal ClickStack users unchanged; host SQL uses a separate login. -->
+  <users>
+    <demo>
+      <password from_env="DEMO_SQL_PASSWORD" />
+      <networks><ip>::/0</ip></networks>
+      <profile>default</profile>
+      <quota>default</quota>
+    </demo>
+  </users>
+</clickhouse>

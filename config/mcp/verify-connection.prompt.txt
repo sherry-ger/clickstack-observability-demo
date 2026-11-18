@@ -1,0 +1,41 @@
+Verify this project's intended local clickstack_demo MCP connection using only
+native clickstack_sql. This is a connection check, not an incident investigation.
+The trainer must replace the inputs and paste the source catalog below first.
+Do not run with unresolved placeholders.
+
+INPUTS:
+UTC start: <UTC_START>
+UTC end: <UTC_END> (a recent two-minute window, kept fixed)
+Expected local UI/MCP endpoint: <LOCAL_ENDPOINT>
+Exact docs-loader resource name: <DOCS_LOADER_NAME>
+SOURCE METADATA:
+<paste this checkout's configure_local.py --source-catalog JSON>
+
+Do not call list_sources, describe_source, list_metrics, describe_metric or
+builder tools: their previews/samples are outside this protected exercise.
+Do not read shell/files/credentials, create/update saved artifacts, trigger
+incidents, send notifications, or widen time on empty results.
+
+Every SQL statement, including schema/key/settings metadata, must select explicit
+columns, return at most 10 rows with LIMIT <= 10, and include:
+SETTINGS max_execution_time=10, timeout_before_checking_execution_speed=0,
+max_rows_to_read=1000000, max_bytes_to_read=100000000,
+max_memory_usage=268435456, max_result_rows=10, result_overflow_mode='throw'.
+Leave native readonly unchanged. Do not remove guards on error.
+
+1. Report the supplied source names/kinds/IDs and connection mapping; these are
+   setup metadata, not independently scanned telemetry. State the selected endpoint.
+2. Discover relevant columns/engine/sorting keys via bounded system metadata SQL.
+   Confirm effective protections, including readonly, with a capped settings query.
+3. Read at most one subscription-backend log using explicit Timestamp,
+   ServiceName, Body, TraceId columns, fixed time predicates, service filter,
+   relevant sort-key predicates, ORDER BY Timestamp DESC and LIMIT 1.
+4. Discover container.memory.percent gauge schema/kind/unit through bounded SQL.
+   With fixed time, metric-name and exact resource-name predicates, query one
+   average gauge value using its discovered value column. Do not assume that a
+   result named percent uses a particular numeric unit before checking.
+5. Report observed values, returned/read-row statistics, errors and missing data.
+   Distinguish successful connection from successful ingestion and full rehearsal.
+
+A small result/time window alone does not bound scans. These statement settings
+protect this route; they do not universally harden the server or other tools.

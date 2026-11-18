@@ -1,0 +1,13 @@
+--- a/subscription-app/templates/index.html
++++ b/subscription-app/templates/index.html
+@@ -167,9 +167,7 @@
+         window.HyperDX.init({
+             apiKey: hyperdxConfig.api_key,
+             service: hyperdxConfig.service_name,            
+-            url: ['localhost', '127.0.0.1'].includes(window.location.hostname)
+-                 ? 'http://localhost:4318'
+-                 : hyperdxConfig.endpoint,
++            url: hyperdxConfig.endpoint,
+             consoleCapture: true,
+             advancedNetworkCapture: true,
+             disableReplay: false        

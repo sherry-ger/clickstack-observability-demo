@@ -1,0 +1,30 @@
+# Separate project: starting/stopping this collector does not recreate the app stack.
+name: ${KUBECON_INVESTIGATOR_PROJECT:-kubecon-investigator}
+services:
+  investigator-collector:
+    image: ${KUBECON_COLLECTOR_IMAGE:?Run python3 scripts/build_images.py first}
+    pull_policy: never
+    container_name: ${KUBECON_INVESTIGATOR_CONTAINER:-kubecon-investigator-collector}
+    command: ["--config", "/etc/otelcol-contrib/investigator.yaml"]
+    restart: unless-stopped
+    mem_limit: 128m
+    cpus: 0.5
+    environment:
+      # Only the ingestion key is needed by the native timing route.
+      HYPERDX_API_KEY: ${HYPERDX_API_KEY:?Set the ingestion key in .env}
+    ports:
+      - "127.0.0.1:${KUBECON_INVESTIGATOR_OTLP_PORT:-14318}:4318"
+      - "127.0.0.1:${KUBECON_INVESTIGATOR_HEALTH_PORT:-14333}:13133"
+    volumes:
+      - ./collector.yaml:/etc/otelcol-contrib/investigator.yaml:ro
+    healthcheck:
+      test: ["CMD", "/healthcheck"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks: [demo]
+networks:
+  demo:
+    external: true
+    name: ${KUBECON_APP_NETWORK:?Use config/tracing/stack to select the app network}

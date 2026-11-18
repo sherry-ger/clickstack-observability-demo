@@ -1,0 +1,46 @@
+# Dedicated investigator receiver: application telemetry keeps its original route.
+receivers:
+  otlp/investigator:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 96
+    spike_limit_mib: 24
+  filter/investigator:
+    error_mode: propagate
+    traces:
+      span:
+        # Reject accidental application traffic even if sent to this private receiver.
+        - 'resource.attributes["env"] != "kubecon-investigator"'
+  batch:
+    timeout: 1s
+    send_batch_size: 256
+    send_batch_max_size: 512
+
+exporters:
+  otlphttp/clickstack:
+    # The shared project network resolves the selected stack's service alias.
+    endpoint: http://clickstack:4318
+    headers:
+      authorization: ${env:HYPERDX_API_KEY}
+    timeout: 10s
+    sending_queue:
+      queue_size: 16
+
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13133
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces/investigator:
+      receivers: [otlp/investigator]
+      processors: [memory_limiter, filter/investigator, batch]
+      # Native timings stay in ClickStack. The official opt-in Codex plugin
+      # sends the demo conversation directly to Langfuse with its own types/IDs.
+      exporters: [otlphttp/clickstack]

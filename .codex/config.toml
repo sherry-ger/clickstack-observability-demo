@@ -1,0 +1,6 @@
+[features]
+hooks = true
+
+[plugins."tracing@codex-observability-plugin"]
+enabled = true
+
