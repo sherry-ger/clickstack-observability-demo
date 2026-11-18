@@ -16,7 +16,7 @@ Codex ── MCP ─────────────────────
    └── demo-only official Stop hook ─────────→ Langfuse Cloud
 ```
 
-This is an experimental demo, not a certified release. Build recipes target Linux ARM64/AMD64; runtime checks have been performed on macOS ARM64 with OrbStack. Independent clean-checkout and native AMD64 runtime checks remain pending. Docker is required; OrbStack is optional. See [publication scope](PUBLICATION.md).
+This is an experimental demo. Build recipes target Linux ARM64/AMD64; runtime checks have been performed on macOS ARM64 with OrbStack. Independent clean-checkout and native AMD64 runtime checks remain pending. Docker is required; OrbStack is optional. See [publication scope](PUBLICATION.md).
 
 ## Requirements
 
@@ -25,7 +25,7 @@ This is an experimental demo, not a certified release. Build recipes target Linu
 - For the AI segment: Node 22+, Codex CLI with login/model access, and a Langfuse Cloud project. Tested: Codex 0.167.0, Node 24.14.1, official Langfuse plugin 0.4.3.
 - Free default ports: app 8000, docs 8001, UI 8080, SQL 8123, OTLP 4317/4318; separate investigator health/OTLP 14333/14318. Configure alternatives before starting if another stack uses these ports.
 
-The demo mounts the Docker socket through a local proxy for infrastructure observation. Run it on a development host with synthetic data. There is no certified universal RAM/disk minimum. Internet is needed for hosted Codex and Langfuse; this is not a fully offline agent.
+The demo mounts the Docker socket through a local proxy for infrastructure observation. Run it on a development host with synthetic data. There is no certified universal RAM/disk minimum. Please note, this is not a fully offline agent.
 
 ## Set up
 
